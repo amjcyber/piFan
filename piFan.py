@@ -5,15 +5,15 @@ import random
 import calendar
 import re
 
-autoFan = Flask(__name__)
-autoFan.static_folder = 'static'
+piFan = Flask(__name__)
+piFan.static_folder = 'static'
 load_dotenv()
 
-@autoFan.route('/', methods=['GET', 'POST'])
+@piFan.route('/', methods=['GET', 'POST'])
 def index():
     return render_template('index.html')
 
-@autoFan.route('/schedule', methods=['POST'])
+@piFan.route('/schedule', methods=['POST'])
 def schedule():
     minute = request.form['minute']
     hour = request.form['hour']
@@ -27,12 +27,12 @@ def schedule():
   
     return render_template('index.html')
 
-@autoFan.route('/jobs')
+@piFan.route('/jobs')
 def jobs():
     jobs = list_cron()
     return render_template('jobs.html', jobs=jobs)
 
-@autoFan.route('/delete_job/<job_id>', methods=['POST'])
+@piFan.route('/delete_job/<job_id>', methods=['POST'])
 def delete_job(job_id):
     del_cron(job_id)
     return redirect(url_for('jobs'))
@@ -118,4 +118,4 @@ def get_month_name(month):
 
 
 if __name__ == '__main__':
-    autoFan.run(debug=True, host='0.0.0.0', port=5500)
+    piFan.run(debug=True, host='0.0.0.0', port=5500)
