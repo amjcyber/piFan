@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fan Schedule</title>
+</head>
+<body>
+    <h1>Fan Schedule</h1>
+    <form action="/schedule" method="post">
+
+        <label for="day_of_week">Day of Week:</label>
+        <select id="day_of_week" name="day_of_week" required>
+            <option>Select</option>
+            <option value="1">Monday</option>
+            <option value="2">Tuesday</option>
+            <option value="3">Wednesday</option>
+            <option value="4">Thursday</option>
+            <option value="5">Friday</option>
+            <option value="6">Saturday</option>
+            <option value="7">Sunday</option>
+            <option value="*">All</option>
+        </select><br><br>
+
+        <label for="day_of_month">Day:</label>
+        <input type="text" id="day_of_month" name="day_of_month" required><br><br>        
+
+        <label for="month">Month:</label>
+        <select id="month" name="month" required>
+            <option>Select</option>
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+            <option value="*">All</option>
+        </select><br><br>
+
+        <label for="hour">Hour:</label>
+        <input type="text" id="hour" name="hour" required><br><br>
+
+        <label for="minute">Minute:</label>
+        <input type="text" id="minute" name="minute" required><br><br>
+
+        <label for="command">Action:</label>
+        <select id="command" name="command" required>
+            <option>Select</option>
+            <option value="Light_On">Light On</option>
+            <option value="Light_Off">Light Off</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+            <option value="Fan_Off">Fan Off</option>
+            <option value="1h">1h-Off</option>
+            <option value="2h">2h-Off</option>
+            <option value="3h">3h-Off</option>
+        </select><br>
+        <input type="submit" value="Schedule">
+    </form>
+</body>
+</html>

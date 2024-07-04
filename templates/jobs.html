@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cron Jobs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Tasks</h1>
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>Job Index</th>
+                    <th>Job ID</th>
+                    <th>Week Day</th>
+                    <th>Day</th>
+                    <th>Month</th>
+                    <th>Hour</th>
+                    <th>Minute</th>
+                    <th>Action</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for job in jobs %}
+                <tr>
+                    <td>{{ job['Job Index'] }}</td>
+                    <td>{{ job['Job ID'] }}</td>
+                    <td>{{ job['Day of Week'] }}</td>
+                    <td>{{ job['Day of Month'] }}</td>
+                    <td>{{ job['Month'] }}</td>
+                    <td>{{ job['Hour'] }}</td>
+                    <td>{{ job['Minute'] }}</td>
+                    <td>{{ job['Command'] }}</td>
+                    <td>
+                        <form action="{{ url_for('delete_job', job_id=job['Job ID']) }}" method="post">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
