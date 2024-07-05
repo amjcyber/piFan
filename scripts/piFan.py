@@ -39,7 +39,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     gpio_pin = 27
-    ir_file = "tv_ana.json"
+    ir_file = "test.json"
     remote = piir.Remote(ir_file, gpio_pin)
     action = args.action.lower()
 

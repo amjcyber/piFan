@@ -1,0 +1,99 @@
+{
+  "formats": [
+    {
+      "coding": "ppm",
+      "zero": [
+        1,
+        1
+      ],
+      "one": [
+        2,
+        1
+      ],
+      "bits": 5,
+      "postamble": [
+        1,
+        2,
+        2,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1,
+        1
+      ],
+      "timebase": 890,
+      "gap": 91000,
+      "carrier": 38000
+    },
+    {
+      "coding": "ppm",
+      "zero": [
+        1,
+        1
+      ],
+      "one": [
+        2,
+        1
+      ],
+      "bits": 5,
+      "postamble": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "timebase": 890,
+      "gap": 91000,
+      "carrier": 38000
+    },
+    {
+      "coding": "ppm",
+      "zero": [
+        1,
+        1
+      ],
+      "one": [
+        2,
+        1
+      ],
+      "bits": 5,
+      "postamble": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1
+      ],
+      "timebase": 890,
+      "gap": 90000,
+      "carrier": 38000
+    }
+  ],
+  "keys": {
+    "light_on": "04",
+    "volume_up": {
+      "format": 1,
+      "data": "04"
+    },
+    "volume_down": {
+      "format": 2,
+      "data": "02"
+    }
+  }
+}
