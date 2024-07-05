@@ -1,5 +1,6 @@
 # piFan
 This is a small project to play a bit with RaspberryPi, IR and my fan.
+
 The aim is to be able to automate my fan.
 
 ## What we need
@@ -30,4 +31,9 @@ Once recorded we will use the `record.json` directly from the python web app.
 
 ## Web App
 The web app is based on python flask. For scheduling the actions (turn on, turn off, set high speed for fan...) we use the native Linux Cron.
+
 At the end, it's and extremely simple and easy to read app so you can modify if for whatever you want. It's just a demostration of how we can automate any IR-based system.
+
+## Credits
+- [Brian Schwind - Sending Infrared Commands From a Raspberry Pi Without LIRC](https://blog.bschwind.com/2016/05/29/sending-infrared-commands-from-a-raspberry-pi-without-lirc/)
+- [PiIR](https://github.com/ts1/PiIR) 
