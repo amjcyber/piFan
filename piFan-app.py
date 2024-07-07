@@ -4,6 +4,7 @@ from crontab import CronTab
 import random
 import calendar
 import re
+import subprocess
 
 piFan = Flask(__name__)
 piFan.static_folder = 'static'
@@ -38,6 +39,15 @@ def jobs():
 def delete_job(job_id):
     del_cron(job_id)
     return redirect(url_for('jobs'))
+
+@piFan.route('/remote/<argument>', methods=['POST'])
+def remote_control(argument):
+    script_path = "/home/pi/git/piFan/scripts/piFan.py"
+    try:
+        result = subprocess.run(["python3", script_path, '-action', argument], capture_output=True, text=True, check=True)
+        return f"<pre>{result.stdout}</pre>"
+    except subprocess.CalledProcessError as e:
+        return f"<pre>Error: {e.stderr}</pre>"
 
 # Create Cron job
 def add_cron(minute, hour, day_of_month, month, day_of_week, command, id):
@@ -119,8 +129,6 @@ def get_month_name(month):
         return calendar.month_name[month_index]
     except (ValueError, IndexError):
         return month
-
-
 
 if __name__ == '__main__':
     piFan.run(debug=True, host='0.0.0.0', port=5500)
