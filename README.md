@@ -1,7 +1,7 @@
 # piFan
 This is a small project to play a bit with RaspberryPi, IR and my fan.
 
-The aim is to be able to automate my fan.
+The aim is to be able to automate my fan. You know, where I live summer is really hot and it's nice to be able to automate when I want my fan on :).
 
 ## What we need
 - RaspberryPi
@@ -10,8 +10,8 @@ The aim is to be able to automate my fan.
 - 1 PN2222 transistor
 - 1 680 ohm resistor
 - 1 220 ohm resistor
-- 1 infrared receiver
-- 1 infrared LED
+- 1 IR receiver
+- 1 IR LED
 - Bread board
 
 ## The circuits

@@ -83,8 +83,11 @@ def list_cron():
         day_of_week_name = get_weekday_name(day_of_week)
         month_name = get_month_name(month)
 
-        pattern = r'\b\d{6}\b'
-        job_id = re.findall(pattern, job.comment)
+        job_command_pattern = r'(?<=action\s).*'
+        job_command = re.findall(job_command_pattern, job.command)
+
+        job_id_pattern = r'\b\d{6}\b'
+        job_id = re.findall(job_id_pattern, job.comment)
 
         job_dict = {
             "Job Index": index,
@@ -94,7 +97,7 @@ def list_cron():
             "Month": month_name,
             "Hour": hour,
             "Minute": minute,
-            "Command": job.command
+            "Command": job_command[0]
         }
         
         jobs_list.append(job_dict)
