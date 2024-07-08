@@ -19,11 +19,6 @@ def index():
 
 @piFan.route('/schedule', methods=['POST'])
 def schedule():
-    #minute = request.form['minute']
-    #hour = request.form['hour']
-    #day_of_month = request.form['day_of_month']
-    #month = request.form['month']
-    #day_of_week = request.form['day_of_week']
     command_arg = request.form['command']
     id = random.randint(0, 999999)
 
@@ -43,8 +38,8 @@ def schedule():
     command = f"python3 {location}/scripts/piFan.py -action {command_arg}"
 
     add_cron(minute,hour,day,month,weekday_number,command,id)
-  
-    return render_template('index.html')
+    jobs = list_cron()
+    return render_template('index.html', jobs=jobs)
 
 @piFan.route('/jobs')
 def jobs():
