@@ -50,7 +50,8 @@ def jobs():
 @piFan.route('/delete_job/<job_id>', methods=['POST'])
 def delete_job(job_id):
     del_cron(job_id)
-    return redirect(url_for('index.html'))
+    #return redirect(url_for('jobs'))
+    return render_template('index.html', jobs=jobs)
 
 @piFan.route('/remote', methods=['GET', 'POST'])
 def remote():
