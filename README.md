@@ -17,9 +17,9 @@ The aim is to be able to automate my fan. You know, where I live summer is reall
 ## The circuits
 
 ### IR Receiver
-
+![[./img/ir_record.png]]
 ### IR Sender
-
+![[./img/ir_send.png]]
 ## Recording IR signal
 We will use [PiIR](https://github.com/ts1/PiIR) that is based on [PiGPIO](http://abyz.me.uk/rpi/pigpio/) a much better, easy to use and modern way to deal with IR from RPi than LIRC.
 
