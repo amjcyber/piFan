@@ -1,7 +1,8 @@
 import piir
 import argparse
 
-location = "/home/pi/git/piFan"
+#location = "/home/pi/git/piFan"
+location = "/home/ub/Documents/github/piFan"
 
 def send_action(action):
     remote.send(action)

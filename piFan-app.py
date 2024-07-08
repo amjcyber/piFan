@@ -3,12 +3,14 @@ from dotenv import load_dotenv
 from crontab import CronTab
 import random
 import calendar
+from datetime import datetime
 import re
 import subprocess
 
 piFan = Flask(__name__)
 piFan.static_folder = 'static'
-location = "/home/pi/git/piFan"
+#location = "/home/pi/git/piFan"
+location = "/home/ub/Documents/github/piFan"
 load_dotenv()
 
 @piFan.route('/', methods=['GET', 'POST'])
@@ -17,17 +19,30 @@ def index():
 
 @piFan.route('/schedule', methods=['POST'])
 def schedule():
-    minute = request.form['minute']
-    hour = request.form['hour']
-    day_of_month = request.form['day_of_month']
-    month = request.form['month']
-    day_of_week = request.form['day_of_week']
+    #minute = request.form['minute']
+    #hour = request.form['hour']
+    #day_of_month = request.form['day_of_month']
+    #month = request.form['month']
+    #day_of_week = request.form['day_of_week']
     command_arg = request.form['command']
     id = random.randint(0, 999999)
 
+    date = request.form['date_complete']
+    date_obj = datetime.strptime(date, '%Y-%m-%d')
+    year = date_obj.year
+    month = date_obj.month
+    day = date_obj.day
+    weekday = date_obj.strftime('%A')
+    weekday_number = (date_obj.weekday() + 1) % 7 + 1 
+
+    time = request.form['time_complete']
+    time_obj = datetime.strptime(time, '%H:%M')
+    hour = time_obj.hour
+    minute = time_obj.minute
+
     command = f"python3 {location}/scripts/piFan.py -action {command_arg}"
 
-    add_cron(minute,hour,day_of_month,month,day_of_week,command,id)
+    add_cron(minute,hour,day,month,weekday_number,command,id)
   
     return render_template('index.html')
 
@@ -58,10 +73,10 @@ def execute_script(action):
     subprocess.run(command, shell=True)
 
 # Create Cron job
-def add_cron(minute, hour, day_of_month, month, day_of_week, command, id):
+def add_cron(minute, hour, day, month, weekday, command, id):
     cron = CronTab(user=True)
     job = cron.new(command=f"{command}", comment=f"id={id}")
-    cron_config = f"{minute} {hour} {day_of_month} {month} {day_of_week}"
+    cron_config = f"{minute} {hour} {day} {month} {weekday}"
     job.setall(cron_config)
     cron.write()
 
