@@ -48,17 +48,6 @@ def remote():
         return redirect(url_for('remote'))
     return render_template('remote.html')
 
-'''
-@piFan.route('/remote/<argument>', methods=['POST'])
-def remote_control(argument):
-    script_path = "/home/pi/git/piFan/scripts/piFan.py"
-    try:
-        result = subprocess.run(["python3", script_path, '-action', argument], capture_output=True, text=True, check=True)
-        return f"<pre>{result.stdout}</pre>"
-    except subprocess.CalledProcessError as e:
-        return f"<pre>Error: {e.stderr}</pre>"
-'''
-
 ### ACTIONS ###
 
 # Execute script
