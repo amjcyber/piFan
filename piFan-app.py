@@ -8,6 +8,7 @@ import subprocess
 
 piFan = Flask(__name__)
 piFan.static_folder = 'static'
+location = "/home/pi/git/piFan"
 load_dotenv()
 
 @piFan.route('/', methods=['GET', 'POST'])
@@ -24,7 +25,7 @@ def schedule():
     command_arg = request.form['command']
     id = random.randint(0, 999999)
 
-    command = f"python3 /home/pi/git/piFan/scripts/piFan.py -action {command_arg}"
+    command = f"python3 {location}/scripts/piFan.py -action {command_arg}"
 
     add_cron(minute,hour,day_of_month,month,day_of_week,command,id)
   
@@ -52,7 +53,7 @@ def remote():
 
 # Execute script
 def execute_script(action):
-    script = '/home/pi/git/piFan/scripts/piFan.py'
+    script = f'{location}/scripts/piFan.py'
     command = f'python3 {script} -action {action}'
     subprocess.run(command, shell=True)
 

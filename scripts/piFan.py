@@ -1,6 +1,8 @@
 import piir
 import argparse
 
+location = "/home/pi/git/piFan"
+
 def send_action(action):
     remote.send(action)
     print(f"Sending action: {action}")
@@ -39,7 +41,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     gpio_pin = 27
-    ir_file = "/home/pi/git/piFan/scripts/test.json"
+    ir_file = f"{location}/scripts/test.json"
     remote = piir.Remote(ir_file, gpio_pin)
     action = args.action.lower()
 
