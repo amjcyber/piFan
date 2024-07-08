@@ -258,36 +258,36 @@
     }
   ],
   "keys": {
-    "on": "04",
-    "volume_up": {
+    "light_on": "04",
+    "high": {
       "format": 1,
       "data": "02"
     },
-    "volume_down": {
+    "low": {
       "format": 2,
       "data": "04"
     },
-    "program_up": {
+    "medium": {
       "format": 3,
       "data": "02"
     },
-    "program_down": {
+    "fan_off": {
       "format": 4,
       "data": "04"
     },
-    "no_volume": {
+    "1h": {
       "format": 5,
       "data": "04"
     },
-    "menu": {
+    "2h": {
       "format": 6,
       "data": "04"
     },
-    "back": {
+    "4h": {
       "format": 7,
       "data": "02"
     },
-    "exit": {
+    "light_off": {
       "format": 8,
       "data": "02"
     }
