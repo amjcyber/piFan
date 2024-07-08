@@ -43,9 +43,8 @@ def delete_job(job_id):
 @piFan.route('/remote', methods=['GET', 'POST'])
 def remote():
     if request.method == 'POST':
-        #action = request.form.get('action')
-        #execute_script(action)
-        print ("test")
+        action = request.form.get('action')
+        execute_script(action)
         return redirect(url_for('remote'))
     return render_template('remote.html')
 
@@ -59,6 +58,15 @@ def remote_control(argument):
     except subprocess.CalledProcessError as e:
         return f"<pre>Error: {e.stderr}</pre>"
 '''
+
+### ACTIONS ###
+
+# Execute script
+def execute_script(action):
+    script = '/home/pi/git/piFan/scripts/piFan.py'
+    command = f'python3 {script} -action {action}'
+    subprocess.run(command, shell=True)
+
 # Create Cron job
 def add_cron(minute, hour, day_of_month, month, day_of_week, command, id):
     cron = CronTab(user=True)
