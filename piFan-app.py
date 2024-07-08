@@ -9,8 +9,8 @@ import subprocess
 
 piFan = Flask(__name__)
 piFan.static_folder = 'static'
-#location = "/home/pi/git/piFan"
-location = "/home/ub/Documents/github/piFan"
+location = "/home/pi/git/piFan"
+#location = "/home/ub/Documents/github/piFan"
 load_dotenv()
 
 @piFan.route('/', methods=['GET', 'POST'])
