@@ -15,7 +15,8 @@ load_dotenv()
 
 @piFan.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html')
+    jobs = list_cron()
+    return render_template('index.html', jobs=jobs)
 
 @piFan.route('/schedule', methods=['POST'])
 def schedule():
