@@ -40,6 +40,16 @@ def delete_job(job_id):
     del_cron(job_id)
     return redirect(url_for('jobs'))
 
+@piFan.route('/remote', methods=['GET', 'POST'])
+def remote():
+    if request.method == 'POST':
+        #action = request.form.get('action')
+        #execute_script(action)
+        print ("test")
+        return redirect(url_for('remote'))
+    return render_template('remote.html')
+
+'''
 @piFan.route('/remote/<argument>', methods=['POST'])
 def remote_control(argument):
     script_path = "/home/pi/git/piFan/scripts/piFan.py"
@@ -48,7 +58,7 @@ def remote_control(argument):
         return f"<pre>{result.stdout}</pre>"
     except subprocess.CalledProcessError as e:
         return f"<pre>Error: {e.stderr}</pre>"
-
+'''
 # Create Cron job
 def add_cron(minute, hour, day_of_month, month, day_of_week, command, id):
     cron = CronTab(user=True)

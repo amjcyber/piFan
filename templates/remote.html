@@ -1,37 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Remote Control</title>
-  </head>
-  <body>
-    <form action="{{ url_for('remote_control', argument='low') }}" method="post">
-        <button type="submit">Low</button>
+</head>
+<body>
+    <h1>Remote Control</h1>
+    <form method="post">
+        <button type="submit" name="action" value="-action test">Test</button>
+        <button type="submit" name="action" value="-action done">Done</button>
+        <!-- Add more buttons as needed -->
     </form>
-    <form action="{{ url_for('remote_control', argument='medium') }}" method="post">
-        <button type="submit">Medium</button>
-    </form>
-    <form action="{{ url_for('remote_control', argument='high') }}" method="post">
-        <button type="submit">High</button>
-    </form>
-    <form action="{{ url_for('remote_control', argument='fan_off) }}" method="post">
-        <button type="submit">Fan Off</button>
-      </form>
-    <form action="{{ url_for('remote_control', argument='1h') }}" method="post">
-        <button type="submit">1h</button>
-    </form>
-    <form action="{{ url_for('remote_control', argument='2h') }}" method="post">
-        <button type="submit">2h</button>
-    </form>
-    <form action="{{ url_for('remote_control', argument='4h') }}" method="post">
-        <button type="submit">4h</button>
-    </form>
-    <form action="{{ url_for('remote_control', argument='light_on') }}" method="post">
-        <button type="submit">On</button>
-    </form>
-    <form action="{{ url_for('remote_control', argument='light_off') }}" method="post">
-        <button type="submit">Off</button>
-    </form>
-  </body>
+</body>
 </html>
