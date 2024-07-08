@@ -23,7 +23,9 @@
         </select><br><br>
 
         <label for="day_of_month">Day:</label>
-        <input type="text" id="day_of_month" name="day_of_month" required><br><br>        
+        <input type="number" id="day_of_month" name="day_of_month" min="1" max="31" required><br><br>
+
+        <input type="date" id="day_of_month" name="day_of_month"><br><br>
 
         <label for="month">Month:</label>
         <select id="month" name="month" required>
@@ -44,10 +46,10 @@
         </select><br><br>
 
         <label for="hour">Hour:</label>
-        <input type="text" id="hour" name="hour" required><br><br>
+        <input type="number" id="hour" name="hour" min="0" max="24" required><br><br>
 
         <label for="minute">Minute:</label>
-        <input type="text" id="minute" name="minute" required><br><br>
+        <input type="number" id="minute" name="minute" min="0" max="59" required><br><br>
 
         <label for="command">Action:</label>
         <select id="command" name="command" required>
