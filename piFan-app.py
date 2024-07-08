@@ -9,8 +9,8 @@ import subprocess
 
 piFan = Flask(__name__)
 piFan.static_folder = 'static'
-location = "/home/pi/git/piFan"
-#location = "/home/ub/Documents/github/piFan"
+#location = "/home/pi/git/piFan"
+location = "/home/ub/Documents/github/piFan"
 load_dotenv()
 
 @piFan.route('/', methods=['GET', 'POST'])
@@ -20,6 +20,8 @@ def index():
 
 @piFan.route('/schedule', methods=['POST'])
 def schedule():
+
+    # Simple Date Config
     command_arg = request.form['command']
     id = random.randint(0, 999999)
 
@@ -37,8 +39,23 @@ def schedule():
     minute = time_obj.minute
 
     command = f"python3 {location}/scripts/piFan.py -action {command_arg}"
-
     add_cron(minute,hour,day,month,weekday_number,command,id)
+
+    '''
+    # Advanced Date Config
+    minute = request.form['minute']
+    hour = request.form['hour']
+    day_of_month = request.form['day_of_month']
+    month = request.form['month']
+    day_of_week = request.form['day_of_week']
+    command_arg = request.form['command']
+    id = random.randint(0, 999999)
+    
+    command = f"python3 {location}/scripts/piFan.py -action {command_arg}"
+    add_cron(minute,hour,day_of_month,month,day_of_week,command,id)
+    '''
+    # Common config
+    #command = f"python3 {location}/scripts/piFan.py -action {command_arg}"
     jobs = list_cron()
     return render_template('index.html', jobs=jobs)
 
