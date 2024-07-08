@@ -29,8 +29,8 @@ def schedule():
     month = date_obj.month
     day = date_obj.day
     weekday = date_obj.strftime('%A')
-    weekday_number = (date_obj.weekday() + 1) % 7 + 1 
-
+    weekday_number = date_obj.weekday()
+    
     time = request.form['time_complete']
     time_obj = datetime.strptime(time, '%H:%M')
     hour = time_obj.hour
@@ -51,7 +51,7 @@ def jobs():
 def delete_job(job_id):
     del_cron(job_id)
     jobs = list_cron()
-    #return redirect(url_for('jobs'))vvvvvvvvvvv
+    #return redirect(url_for('jobs'))
     return render_template('index.html', jobs=jobs)
 
 @piFan.route('/remote', methods=['GET', 'POST'])
