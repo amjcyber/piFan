@@ -22,42 +22,34 @@ def index():
 def schedule():
 
     # Simple Date Config
+    if 'date_complete' in request.form and 'time_complete' in request.form:
+        date = request.form['date_complete']
+        date_obj = datetime.strptime(date, '%Y-%m-%d')
+        year = date_obj.year
+        month = date_obj.month
+        day = date_obj.day
+        weekday = date_obj.strftime('%A')
+        weekday_number = date_obj.weekday()
+        
+        time = request.form['time_complete']
+        time_obj = datetime.strptime(time, '%H:%M')
+        hour = time_obj.hour
+        minute = time_obj.minute
+    else:        
+        # Advanced Date Config
+        minute = request.form['minute']
+        hour = request.form['hour']
+        day = request.form['day_of_month']
+        month = request.form['month']
+        weekday_number = request.form['day_of_week']
+        id = random.randint(0, 999999)
+        
+    # Common config
     command_arg = request.form['command']
     id = random.randint(0, 999999)
-
-    date = request.form['date_complete']
-    date_obj = datetime.strptime(date, '%Y-%m-%d')
-    year = date_obj.year
-    month = date_obj.month
-    day = date_obj.day
-    weekday = date_obj.strftime('%A')
-    weekday_number = date_obj.weekday()
-    
-    time = request.form['time_complete']
-    time_obj = datetime.strptime(time, '%H:%M')
-    hour = time_obj.hour
-    minute = time_obj.minute
-
     command = f"python3 {location}/scripts/piFan.py -action {command_arg}"
     add_cron(minute,hour,day,month,weekday_number,command,id)
-
-    '''
-    # Advanced Date Config
-    minute = request.form['minute']
-    hour = request.form['hour']
-    day_of_month = request.form['day_of_month']
-    month = request.form['month']
-    day_of_week = request.form['day_of_week']
-    command_arg = request.form['command']
-    id = random.randint(0, 999999)
-    
-    command = f"python3 {location}/scripts/piFan.py -action {command_arg}"
-    add_cron(minute,hour,day_of_month,month,day_of_week,command,id)
-    '''
-    # Common config
-    #command = f"python3 {location}/scripts/piFan.py -action {command_arg}"
-    jobs = list_cron()
-    return render_template('index.html', jobs=jobs)
+    return redirect(url_for('index'))
 
 @piFan.route('/jobs')
 def jobs():
@@ -68,8 +60,7 @@ def jobs():
 def delete_job(job_id):
     del_cron(job_id)
     jobs = list_cron()
-    #return redirect(url_for('jobs'))
-    return render_template('index.html', jobs=jobs)
+    return redirect(url_for('index'))
 
 @piFan.route('/remote', methods=['GET', 'POST'])
 def remote():
@@ -77,7 +68,7 @@ def remote():
         action = request.form.get('action')
         execute_script(action)
         return redirect(url_for('remote'))
-    return render_template('remote.html')
+    return render_template('remote-2.html')
 
 ### ACTIONS ###
 
