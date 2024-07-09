@@ -17,6 +17,9 @@
             <li class="nav-item">
                 <a class="nav-link" id="advanced-tab" data-toggle="tab" href="#advanced" role="tab" aria-controls="advanced" aria-selected="false">Advanced Config</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" id="remote-tab" data-toggle="tab" href="#remote" role="tab" aria-controls="remote" aria-selected="false">Remote</a>
+            </li>
         </ul>
 
         <!-- Tab panes -->
@@ -99,6 +102,50 @@
                     <input type="submit" value="Schedule">
                 </form>
             </div>
+            <div class="tab-pane fade" id="remote" role="tabpanel" aria-labelledby="remote-tab">
+                <div class="container mt-5">
+                    <h1 class="text-center mb-4">Remote Control</h1>
+                    <form method="post" class="text-center">
+                        <div class="mb-2" role="group">
+                            <button type="submit" name="action" value="low" class="btn btn-primary">
+                                <i class="fas fa-wind"></i> Low
+                            </button>
+                            <button type="submit" name="action" value="Medium" class="btn btn-primary">
+                                <i class="fas fa-wind"></i> Medium
+                            </button>
+                            <button type="submit" name="action" value="High" class="btn btn-primary">
+                                <i class="fas fa-wind"></i> High
+                            </button>
+                        </div>
+                        <div class="mb-2">
+                            <button type="submit" name="action" value="fan_off" class="btn btn-danger">
+                                <i class="fas fa-power-off"></i> Fan Off
+                            </button>
+                        </div>
+                        <div class="mb-2" role="group">
+                            <button type="submit" name="action" value="1h" class="btn btn-secondary">
+                                <i class="far fa-clock"></i> 1h
+                            </button>
+                            <button type="submit" name="action" value="2h" class="btn btn-secondary">
+                                <i class="far fa-clock"></i> 2h
+                            </button>
+                            <button type="submit" name="action" value="4h" class="btn btn-secondary">
+                                <i class="far fa-clock"></i> 4h
+                            </button>
+                        </div>
+                        <div class="mb-2" role="group">
+                            <button type="submit" name="action" value="light_on" class="btn btn-warning">
+                                <i class="fas fa-lightbulb"></i> Light On
+                            </button>
+                            <button type="submit" name="action" value="light_off" class="btn btn-warning">
+                                <i class="far fa-lightbulb"></i> Light Off
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+                    
+
         </div>
     </div>
 
