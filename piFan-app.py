@@ -125,7 +125,7 @@ def list_cron():
         job_command_pattern = r'(?<=action\s).*'
         job_command = re.findall(job_command_pattern, job.command)
 
-        job_id_pattern = r'\b\d{6}\b'
+        job_id_pattern = r'\b\d{1,6}\b'
         job_id = re.findall(job_id_pattern, job.comment)
 
         job_dict = {
