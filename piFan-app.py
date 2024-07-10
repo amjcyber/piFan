@@ -49,7 +49,12 @@ def schedule():
     id = random.randint(0, 999999)
     command = f"python3 {location}/scripts/piFan.py -action {command_arg}"
     add_cron(minute,hour,day,month,weekday_number,command,id)
-    return redirect(url_for('index'))
+    #return redirect(url_for('index'))
+
+    if 'date_complete' in request.form:
+        return redirect(url_for('index') + '#simple')
+    else:
+        return redirect(url_for('index') + '#advanced')
 
 @piFan.route('/jobs')
 def jobs():
