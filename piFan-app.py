@@ -68,7 +68,7 @@ def remote():
         action = request.form.get('action')
         execute_script(action)
         #return redirect(url_for('remote'))
-        return redirect(url_for('index'))
+        return redirect(url_for('index') + '#remote')
     return render_template('remote-2.html')
     #return redirect(url_for('index'))
 
