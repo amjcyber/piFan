@@ -4,6 +4,7 @@ This is a small project to play a bit with RaspberryPi, IR and my fan.
 The aim is to be able to automate my fan. You know, where I live summer is really hot and it's nice to be able to automate when I want my fan on :).
 
 ## What we need
+### Hardware
 - RaspberryPi
 - Jump wires
 - 1 red LED
@@ -13,6 +14,16 @@ The aim is to be able to automate my fan. You know, where I live summer is reall
 - 1 IR receiver
 - 1 IR LED
 - Bread board
+
+### Software
+
+Install `python3-crontab`, `python3-pip` and the required modules.
+
+```
+sudo apt-get install python3-crontab
+sudo apt-get install python3-pip
+pip3 install -r requirements.txt
+```
 
 ## The circuits
 
