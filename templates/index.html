@@ -90,7 +90,7 @@
                     </form>
                 </div>
             </div>
-            
+            <!--
             <div class="tab-pane fade" id="advanced" role="tabpanel" aria-labelledby="advanced-tab">
                 <form action="/schedule" method="post">
                     <label for="day_of_week">Day of Week:</label>
@@ -148,6 +148,89 @@
                     <input type="submit" value="Schedule">
                 </form>
             </div>
+            -->
+            <div class="tab-pane fade" id="advanced" role="tabpanel" aria-labelledby="advanced-tab">
+                <div class="container">
+                    <form action="/schedule" method="post" class="mt-4">
+                        <div class="form-group">
+                            <label for="day_of_week">Day of Week:</label>
+                            <select id="day_of_week" name="day_of_week" class="form-control" required>
+                                <option value="">Select</option>
+                                <option value="1">Monday</option>
+                                <option value="2">Tuesday</option>
+                                <option value="3">Wednesday</option>
+                                <option value="4">Thursday</option>
+                                <option value="5">Friday</option>
+                                <option value="6">Saturday</option>
+                                <option value="7">Sunday</option>
+                                <option value="*">All</option>
+                            </select>
+                        </div>
+            
+                        <div class="form-group row">
+                            <label for="hour" class="col-sm-3 col-form-label">Hour:</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="hour" name="hour" class="form-control" required>
+                            </div>
+                        </div>
+            
+                        <div class="form-group row">
+                            <label for="minute" class="col-sm-3 col-form-label">Minute:</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="minute" name="minute" class="form-control" required>
+                            </div>
+                        </div>
+            
+                        <div class="form-group row">
+                            <label for="day_of_month" class="col-sm-3 col-form-label">Day:</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="day_of_month" name="day_of_month" class="form-control" required>
+                            </div>
+                        </div>
+            
+                        <div class="form-group">
+                            <label for="month">Month:</label>
+                            <select id="month" name="month" class="form-control" required>
+                                <option value="">Select</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                                <option value="*">All</option>
+                            </select>
+                        </div>
+            
+                        <div class="form-group">
+                            <label for="command">Command:</label>
+                            <select id="command" name="command" class="form-control" required>
+                                <option value="">Select Action</option>
+                                <option value="Light_On">Light On</option>
+                                <option value="Light_Off">Light Off</option>
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                                <option value="Fan_Off">Fan Off</option>
+                                <option value="1h">1h-Off</option>
+                                <option value="2h">2h-Off</option>
+                                <option value="4h">4h-Off</option>
+                            </select>
+                        </div>
+            
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Schedule</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
             <div class="tab-pane fade" id="remote" role="tabpanel" aria-labelledby="remote-tab">
                 <div class="container mt-5">
                     <form action="/remote" method="post" class="text-center">
