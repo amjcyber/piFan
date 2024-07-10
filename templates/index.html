@@ -24,29 +24,6 @@
         <!-- Tab panes -->
         <!-- SIMPLE DATE CONFIG -->
         <div class="tab-content">
-            <!--
-            <div class="tab-pane fade show active" id="simple" role="tabpanel" aria-labelledby="simple-tab">
-                <form action="/schedule" method="post">
-                    <input type="date" id="date_complete" name="date_complete" required><br><br>
-
-                    <input type="time" id="time_complete" name="time_complete" required><br><br>
-
-                    <select id="command" name="command" required>
-                        <option>Action</option>
-                        <option value="Light_On">Light On</option>
-                        <option value="Light_Off">Light Off</option>
-                        <option value="Low">Low</option>
-                        <option value="Medium">Medium</option>
-                        <option value="High">High</option>
-                        <option value="Fan_Off">Fan Off</option>
-                        <option value="1h">1h-Off</option>
-                        <option value="2h">2h-Off</option>
-                        <option value="4h">4h-Off</option>
-                    </select><br><br>
-                    <input type="submit" value="Schedule">
-                </form>
-            </div>
-            -->
             <div class="tab-pane fade show active" id="simple" role="tabpanel" aria-labelledby="simple-tab">
                 <div class="container">
                     <form action="/schedule" method="post" class="mt-4">
@@ -90,65 +67,7 @@
                     </form>
                 </div>
             </div>
-            <!--
-            <div class="tab-pane fade" id="advanced" role="tabpanel" aria-labelledby="advanced-tab">
-                <form action="/schedule" method="post">
-                    <label for="day_of_week">Day of Week:</label>
-                    <select id="day_of_week" name="day_of_week" required>
-                        <option>Select</option>
-                        <option value="1">Monday</option>
-                        <option value="2">Tuesday</option>
-                        <option value="3">Wednesday</option>
-                        <option value="4">Thursday</option>
-                        <option value="5">Friday</option>
-                        <option value="6">Saturday</option>
-                        <option value="7">Sunday</option>
-                        <option value="*">All</option>
-                    </select><br><br>
 
-                    <label for="hour">Hour:</label>
-                    <input type="text" id="hour" name="hour" required><br><br>
-
-                    <label for="minute">Minute:</label>
-                    <input type="text" id="minute" name="minute" required><br><br>
-
-                    <label for="day_of_month">Day:</label>
-                    <input type="text" id="day_of_month" name="day_of_month" required><br><br>
-
-                    <label for="month">Month:</label>
-                    <select id="month" name="month" required>
-                        <option>Select</option>
-                        <option value="1">January</option>
-                        <option value="2">February</option>
-                        <option value="3">March</option>
-                        <option value="4">April</option>
-                        <option value="5">May</option>
-                        <option value="6">June</option>
-                        <option value="7">July</option>
-                        <option value="8">August</option>
-                        <option value="9">September</option>
-                        <option value="10">October</option>
-                        <option value="11">November</option>
-                        <option value="12">December</option>
-                        <option value="*">All</option>
-                    </select><br><br>
-
-                    <select id="command" name="command" required>
-                        <option>Action</option>
-                        <option value="Light_On">Light On</option>
-                        <option value="Light_Off">Light Off</option>
-                        <option value="Low">Low</option>
-                        <option value="Medium">Medium</option>
-                        <option value="High">High</option>
-                        <option value="Fan_Off">Fan Off</option>
-                        <option value="1h">1h-Off</option>
-                        <option value="2h">2h-Off</option>
-                        <option value="4h">4h-Off</option>
-                    </select><br><br>
-                    <input type="submit" value="Schedule">
-                </form>
-            </div>
-            -->
             <div class="tab-pane fade" id="advanced" role="tabpanel" aria-labelledby="advanced-tab">
                 <div class="container">
                     <form action="/schedule" method="post" class="mt-4">
@@ -156,7 +75,7 @@
                             <label for="day_of_week" class="col-sm-3 col-form-label">Day of Week:</label>
                             <div class="col-sm-9">
                                 <select id="day_of_week" name="day_of_week" class="form-control" required>
-                                    <option value="">Select</option>
+                                    <option value="">Select Day</option>
                                     <option value="1">Monday</option>
                                     <option value="2">Tuesday</option>
                                     <option value="3">Wednesday</option>
@@ -194,7 +113,7 @@
                             <label for="month" class="col-sm-3 col-form-label">Month:</label>
                             <div class="col-sm-9">
                                 <select id="month" name="month" class="form-control" required>
-                                    <option value="">Select</option>
+                                    <option value="">Select Month</option>
                                     <option value="1">January</option>
                                     <option value="2">February</option>
                                     <option value="3">March</option>
