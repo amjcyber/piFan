@@ -49,14 +49,12 @@ def schedule():
     id = random.randint(0, 999999)
     command = f"python3 {location}/scripts/piFan.py -action {command_arg}"
     add_cron(minute,hour,day,month,weekday_number,command,id)
-    #return redirect(url_for('index'))
-    '''
+
     if 'date_complete' in request.form:
         return redirect(url_for('index') + '#simple')
     else:
         return redirect(url_for('index') + '#advanced')
-    '''
-    return redirect(url_for('index'))
+
 
 @piFan.route('/jobs')
 def jobs():
@@ -74,9 +72,8 @@ def remote():
     if request.method == 'POST':
         action = request.form.get('action')
         execute_script(action)
-        #return redirect(url_for('remote'))
         return redirect(url_for('index') + '#remote')
-    return render_template('remote-2.html')
+    return render_template('remote.html')
     #return redirect(url_for('index'))
 
 ### ACTIONS ###
