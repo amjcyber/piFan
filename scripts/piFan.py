@@ -1,8 +1,7 @@
 import piir
 import argparse
-
-location = "/home/pi/git/piFan"
-#location = "/home/ub/Documents/github/piFan"
+from dotenv import load_dotenv
+import os
 
 def send_action(action):
     remote.send(action)
@@ -41,8 +40,15 @@ if __name__ == "__main__":
     parser.add_argument("-action", type=str, required=True, help=help_message)
     args = parser.parse_args()
 
-    gpio_pin = 27
-    ir_file = f"{location}/scripts/record.json"
+    load_dotenv()
+    try:
+        location = os.environ.get('location')
+        gpio_pin = os.environ.get('gpio_pin')
+        ir_file = os.environ.get('ir_file')
+    except:
+        print("Make sure the environment variables are defined.")
+
+    ir_file = f"{location}/scripts/{ir_file}"
     remote = piir.Remote(ir_file, gpio_pin)
     action = args.action.lower()
 

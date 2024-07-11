@@ -6,12 +6,11 @@ import calendar
 from datetime import datetime
 import re
 import subprocess
+from dotenv import load_dotenv
+import os
 
 piFan = Flask(__name__)
 piFan.static_folder = 'static'
-location = "/home/pi/git/piFan"
-#location = "/home/ub/Documents/github/piFan"
-load_dotenv()
 
 @piFan.route('/', methods=['GET', 'POST'])
 def index():
@@ -166,4 +165,10 @@ def get_month_name(month):
         return month
 
 if __name__ == '__main__':
+    load_dotenv()
+    try:
+        location = os.environ.get('location')
+    except:
+        print("Make sure the environment variables are defined.")
+
     piFan.run(debug=True, host='0.0.0.0', port=5500)
