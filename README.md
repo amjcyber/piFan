@@ -25,6 +25,16 @@ sudo apt-get install python3-pip
 pip3 install -r requirements.txt
 ```
 
+### Environment variables
+
+Create a `.env` file like:
+
+```
+location = <Folder-Location>
+gpio_pin = <GPIO PIN>
+ir_file = "JSON file with IR records"
+```
+
 ## The circuits
 
 ### IR Receiver

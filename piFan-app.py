@@ -76,8 +76,8 @@ def remote():
     if request.method == 'POST':
         action = request.form.get('action')
         execute_script(action)
-        return redirect(url_for('index') + '#remote')
-    return render_template('remote.html')
+        #return redirect(url_for('index') + '#remote')
+    #return render_template('remote.html')
     #return redirect(url_for('index'))
 
 ### ACTIONS ###
