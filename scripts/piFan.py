@@ -44,11 +44,11 @@ if __name__ == "__main__":
     try:
         location = os.environ.get('location')
         gpio_pin = os.environ.get('gpio_pin')
-        ir_file = os.environ.get('ir_file')
+        file = os.environ.get('ir_file')
     except:
         print("Make sure the environment variables are defined.")
 
-    ir_file = f"{location}/scripts/{ir_file}"
+    ir_file = f"{location}/scripts/{file}"
     remote = piir.Remote(ir_file, gpio_pin)
     action = args.action.lower()
 
