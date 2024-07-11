@@ -49,7 +49,7 @@ if __name__ == "__main__":
         print("Make sure the environment variables are defined.")
 
     ir_file = f"{location}/scripts/{file}"
-    remote = piir.Remote(ir_file, gpio_pin)
+    remote = piir.Remote(ir_file, 27)
     action = args.action.lower()
 
     if action.lower() in valid_actions:
