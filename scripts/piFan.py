@@ -48,7 +48,7 @@ if __name__ == "__main__":
     except:
         print("Make sure the environment variables are defined.")
 
-    ir_file = f"{location}/scripts/{file}"
+    ir_file = f"{location}/scripts/record_lg.json"
     remote = piir.Remote(ir_file, gpio_pin)
     action = args.action.lower()
 
