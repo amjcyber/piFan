@@ -43,13 +43,13 @@ if __name__ == "__main__":
     load_dotenv()
     try:
         location = os.environ.get('location')
-        gpio_pin = os.environ.get('gpio_pin')
+        gpio_pin = int(os.environ.get('gpio_pin'))
         file = os.environ.get('ir_file')
     except:
         print("Make sure the environment variables are defined.")
 
     ir_file = f"{location}/scripts/{file}"
-    remote = piir.Remote(ir_file, 27)
+    remote = piir.Remote(ir_file, gpio_pin)
     action = args.action.lower()
 
     if action.lower() in valid_actions:
