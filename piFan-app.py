@@ -11,6 +11,11 @@ import os
 
 piFan = Flask(__name__)
 piFan.static_folder = 'static'
+load_dotenv()
+try:
+    location = os.environ.get('location')
+except:
+    print("Make sure the environment variables are defined.")
 
 @piFan.route('/', methods=['GET', 'POST'])
 def index():
@@ -165,10 +170,4 @@ def get_month_name(month):
         return month
 
 if __name__ == '__main__':
-    load_dotenv()
-    try:
-        location = os.environ.get('location')
-    except:
-        print("Make sure the environment variables are defined.")
-
     piFan.run(debug=True, host='0.0.0.0', port=5500)
