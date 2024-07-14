@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, jsonify, request, redirect, url_for
 from dotenv import load_dotenv
 from crontab import CronTab
 import random
@@ -16,6 +16,40 @@ try:
     location = os.environ.get('location')
 except:
     print("Make sure the environment variables are defined.")
+
+@piFan.route('/manifest.json')
+def manifest():
+    manifest_data = {
+        "name": "piFan",
+        "short_name": "piFan",
+        "description": "Aplication to piFan",
+        "start_url": "./templates/index.html",
+        "display": "standalone",
+        "background_color": "#ffffff",
+        "theme_color": "#000000",
+        "icons": [
+            {
+                "src": "/static/img/icon_64.png",
+                "type": "image/png",
+                "sizes": "64x64",
+                "purpose": "any maskable"
+            },
+            {
+                "src": "/static/img/icon_128.png",
+                "type": "image/png",
+                "sizes": "128x128",
+                "purpose": "any maskable"
+            },
+            {
+                "src": "/static/img/icon_512.png",
+                "type": "image/png",
+                "sizes": "512x512",
+                "purpose": "any maskable"
+            }
+        ]   
+    }
+    
+    return jsonify(manifest_data)
 
 @piFan.route('/', methods=['GET', 'POST'])
 def index():
@@ -171,3 +205,4 @@ def get_month_name(month):
 
 if __name__ == '__main__':
     piFan.run(debug=True, host='0.0.0.0', port=5500)
+
