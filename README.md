@@ -24,7 +24,12 @@ sudo apt-get install python3-crontab
 sudo apt-get install python3-pip
 pip3 install -r requirements.txt
 ```
-
+Create your SSL certificate
+```
+openssl genrsa -out key.pem 2048
+openssl req -new -key key.pem -out csr.pem
+openssl x509 -req -days 365 -in csr.pem -signkey key.pem -out cert.pem
+```
 ### Environment variables
 
 Create a `.env` file like:
@@ -32,7 +37,9 @@ Create a `.env` file like:
 ```
 location = <Folder-Location>
 gpio_pin = <GPIO PIN>
-ir_file = "JSON file with IR records"
+ir_file = <JSON file with IR records>
+cert = </certs/yourcert.pem>
+key = </certs/yourkey.pem>
 ```
 
 ## The circuits
