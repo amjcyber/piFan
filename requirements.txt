@@ -3,3 +3,5 @@ dotenv
 random
 calendar
 re
+dotenv
+os

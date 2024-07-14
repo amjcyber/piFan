@@ -14,6 +14,8 @@ piFan.static_folder = 'static'
 load_dotenv()
 try:
     location = os.environ.get('location')
+    cert = os.environ.get("cert")
+    key = os.environ.get("key")
 except:
     print("Make sure the environment variables are defined.")
 
@@ -204,5 +206,4 @@ def get_month_name(month):
         return month
 
 if __name__ == '__main__':
-    piFan.run(debug=True, host='0.0.0.0', port=5500)
-
+    piFan.run(ssl_context=(cert, key), debug=True, host='0.0.0.0', port=5500)
