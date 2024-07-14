@@ -22,7 +22,7 @@ def manifest():
     manifest_data = {
         "name": "piFan",
         "short_name": "piFan",
-        "description": "Aplication to piFan",
+        "description": "piFan web app",
         "start_url": "./templates/index.html",
         "display": "standalone",
         "background_color": "#ffffff",
