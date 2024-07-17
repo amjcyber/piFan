@@ -22,6 +22,7 @@ Install `python3-crontab`, `python3-pip` and the required modules.
 ```
 sudo apt-get install python3-crontab
 sudo apt-get install python3-pip
+sudo apt-get install gunicorn3
 pip3 install -r requirements.txt
 ```
 Create your SSL certificate
